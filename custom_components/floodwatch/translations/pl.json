@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wybierz obszar monitoringu",
+        "description": "Wybierz rzekę i punkt pomiarowy z listy obszarów portalu RWD Prospect."
+      },
+      "manual": {
+        "title": "Podaj obszar ręcznie",
+        "description": "Nie udało się pobrać listy obszarów. Podaj ścieżkę obszaru (np. biala/tarnow) i spróbuj ponownie."
+      }
+    },
+    "error": {
+      "invalid_region": "Podana ścieżka obszaru jest nieprawidłowa."
+    },
+    "data": {
+      "region": "Obszar",
+      "region_name": "Nazwa (opcjonalna)"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje Floodwatch",
+        "description": "Ustaw interwał odświeżania danych (w sekundach, min. 60)."
+      }
+    },
+    "data": {
+      "scan_interval": "Interwał odświeżania (s)"
+    }
+  }
+}
