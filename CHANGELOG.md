@@ -35,9 +35,9 @@ Historia wydań: [GitHub Releases](https://github.com/mitabi/floodwatch/releases
   istniał).
 - **Zrywanie połączenia z HA** — uszkodzony `coordinator.py` (błędy składni
   i błędne wcięcia powodowały pad setupu i brak odzyskiwania); obsługa BOM
-  UTF-8 w odpowiedzi API (inyaczej `json.loads` padał na realnych danych).
+  UTF-8 w odpowiedzi API (inaczej `json.loads` padał na realnych danych).
 
 ### Zmienione
 
-- Vjałose indywidualne: tylko dokumentacja i narzędzia — bez wpływu na
+- Wprowadzono tylko zmiany dokumentacyjne i narzędziowe — bez wpływu na
   działanie integracji.
