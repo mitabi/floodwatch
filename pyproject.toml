@@ -1,0 +1,54 @@
+# Konfiguracja projektu floodwatch (uv).
+#
+# Uwaga: to NIE jest pakiet do pip-instalacji — custom_component wgrywa się do
+# Home Assistant z `custom_components/` (dystrybucja HACS, zip_release).
+# Zadanie tego pliku to środowisko deweloperskie: narzędzia, type-checki, testy.
+# Wersja jest spójna z custom_components/floodwatch/manifest.json i aktualizowana
+# przez semantic-release (patrz .releaserc.json).
+
+[project]
+name = "floodwatch"
+version = "0.1.1"
+description = "Zintegrowany z Home Assistant monitoring powodziowy RWD Prospect (monitoring.prospect.pl)"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "mitabi", email = "mitabi@techmic.pl" }]
+
+# Bezpośrednie importy kodu integracji (dostarczane również przez środowisko HA).
+dependencies = [
+    "aiohttp>=3.10",
+    "async-timeout>=4.0",
+]
+
+[dependency-groups]
+# Narzędzia deweloperskie — domyślnie instalowane przez `uv sync`.
+dev = [
+    "mypy>=1.16",
+    "pytest>=8.3",
+    "pytest-aiohttp>=1.0",
+    "pytest-asyncio>=0.25",
+    "ruff>=0.9",
+]
+
+# Świadomie NIE dodajemy tu pakietu `homeassistant`: HA dostarcza własny,
+# przypięty zestaw zależności (m.in. aiohttp) w swoim środowisku, a lock tego
+# projektu musiałby być z nim spójny (homeassistant 2024.6 wymusza
+# aiohttp==3.9.5, co koliduje z nowszym aiohttp powyżej). Do type-checków
+# przeciwko pełnemu HA zainstaluj je w osobnym venv:
+#     uv venv .venv-ha
+#     uv pip install --python .venv-ha homeassistant
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "N"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true

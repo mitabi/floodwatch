@@ -8,7 +8,6 @@ from typing import Any
 
 import aiohttp
 import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -78,7 +77,9 @@ def _area_label(html: str, match: re.Match[str]) -> str:
     return label
 
 
-class FloodwatchConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class FloodwatchConfigFlow(  # type: ignore[call-arg]
+    config_entries.ConfigFlow, domain=DOMAIN
+):
     """Konfiguracja integracji floodwatch przez UI."""
 
     VERSION = 1
@@ -191,7 +192,7 @@ class FloodwatchConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     @staticmethod
     def async_get_options_flow(
         config_entry: config_entries.ConfigEntry,
-    ) -> "FloodwatchOptionsFlow":
+    ) -> FloodwatchOptionsFlow:
         return FloodwatchOptionsFlow(config_entry)
 
 

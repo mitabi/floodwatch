@@ -10,7 +10,6 @@ gdzie <base> to ścieżka odcinka rzeki (np. /app/biala/tarnow).
 
 from __future__ import annotations
 
-from datetime import timedelta
 from typing import Final
 
 DOMAIN: Final = "floodwatch"

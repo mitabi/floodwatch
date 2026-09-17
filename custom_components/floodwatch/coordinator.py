@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import asyncio
 import json
 import logging
 from datetime import timedelta
@@ -10,7 +9,6 @@ from typing import Any
 
 import aiohttp
 import async_timeout
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
@@ -78,7 +76,7 @@ class FloodwatchCoordinator(DataUpdateCoordinator[dict[str, dict[str, Any]]]):
                     text = await resp.text()
                     # API zwraca UTF-8 z BOM; json.loads nie toleruje BOM-a.
                     payload = json.loads(text.lstrip("\ufeff"))
-        except (asyncio.TimeoutError, aiohttp.ClientError, UpdateFailed) as err:
+        except (TimeoutError, aiohttp.ClientError, UpdateFailed) as err:
             raise UpdateFailed(f"Nie udało się pobrać danych: {err}") from err
 
         if not isinstance(payload, list):

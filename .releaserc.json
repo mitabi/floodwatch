@@ -1,0 +1,46 @@
+{
+    "repositoryUrl": "https://github.com/mitabi/floodwatch.git",
+    "branches": [
+        "main"
+    ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/changelog",
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "uv version ${nextRelease.version}"
+            }
+        ],
+        [
+            "@ceski23/semantic-release-hacs",
+            {
+                "manifestPath": "custom_components/floodwatch/manifest.json"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "message": "chore(release): ${nextRelease.version} [skip ci]",
+                "assets": [
+                    "CHANGELOG.md",
+                    "custom_components/floodwatch/manifest.json",
+                    "pyproject.toml",
+                    "uv.lock"
+                ]
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    {
+                        "path": "release.zip",
+                        "label": "Release archive"
+                    }
+                ]
+            }
+        ]
+    ]
+}
