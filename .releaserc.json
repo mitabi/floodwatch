@@ -8,12 +8,6 @@
         "@semantic-release/release-notes-generator",
         "@semantic-release/changelog",
         [
-            "@semantic-release/exec",
-            {
-                "prepareCmd": "uv version ${nextRelease.version}"
-            }
-        ],
-        [
             "@ceski23/semantic-release-hacs",
             {
                 "manifestPath": "custom_components/floodwatch/manifest.json"

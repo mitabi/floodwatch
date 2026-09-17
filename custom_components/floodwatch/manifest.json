@@ -8,6 +8,7 @@
   "config_flow": true,
   "iot_class": "cloud_polling",
   "integration_type": "service",
-  "documentation": "https://github.com/yourusername/floodwatch",
-  "issue_tracker": "https://github.com/yourusername/floodwatch/issues"
+  "homeassistant": "2024.6.0",
+  "documentation": "https://github.com/mitabi/floodwatch",
+  "issue_tracker": "https://github.com/mitabi/floodwatch/issues"
 }
