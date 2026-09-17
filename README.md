@@ -108,10 +108,24 @@ uv pip install --python .venv-ha homeassistant
 
 ## Wersje i wydania
 
-Wersja jest trzymana w `manifest.json` (oraz `pyproject.toml`) i wydawana przez
+Nowe wersje rozszerzenia tworzone są **automatycznie na GitHubie** — workflow
+[`.github/workflows/release.yml`](.github/workflows/release.yml) uruchamia
 [semantic-release](https://github.com/semantic-release/semantic-release)
-automatycznie na gałęzi `main` (commit w formacie conventional, np. `feat:` /
-`fix:`). Utrzymuj wersje w `manifest.json` i `pyproject.toml` w spójności.
+przy każdym pushu na gałąź `main`:
+
+1. **Commit w formacie conventional commits** decyduje o numerze wersji:
+   `feat:` → nowa drobna wersja (minor), `fix:` → wersja łata (patch),
+   `docs:`/`chore:` → bez wydania.
+2. semantic-release aktualizuje `CHANGELOG.md` (sekcja per wersja), podbija
+   wersję w `manifest.json` i `pyproject.toml` oraz tworzy commit
+   `chore(release): <wersja> [skip ci]` (guard w workflow zapobiega
+   ponownemu wyzwoleniu przez ten commit).
+3. Na GitHubie powstaje **tag** i **Release**; plugin HACS pakuje katalog
+   `custom_components/` do `release.zip` i dołącza go jako asset — to z niego
+   integracja instalowana jest przez HACS (`zip_release`).
+
+Wersja „źródłowa" trzymana jest w `manifest.json` (oraz `pyproject.toml`) —
+utrzymuj oba pliki w spójności (= wersja bieżącego wydania).
 
 ## Licencja
 

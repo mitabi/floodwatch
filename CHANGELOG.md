@@ -6,8 +6,10 @@ Format oparty o [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 Historia wydań: [GitHub Releases](https://github.com/mitabi/floodwatch/releases).
 
 > Plik jest automatycznie rozszerzany przez semantic-release przy każdym
-> wydaniu (sekcja per wersja). Poniższa sekcja `[Unreleased]` opisuje stan
-> repozytorium przed pierwszym opublikowanym wydaniem.
+> wydaniu (sekcja per wersja). Nowe wersje tworzone są automatycznie na GitHubie
+> przy pushu na `main` — szczegóły w README → „Wersje i wydania".
+> Poniższa sekcja `[Unreleased]` opisuje stan repozytorium przed pierwszym
+> opublikowanym wydaniem.
 
 ## [Unreleased]
 
