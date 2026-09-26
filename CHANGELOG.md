@@ -1,3 +1,10 @@
+# 1.0.0 (2026-09-17)
+
+
+### Features
+
+* uzupelnienie repozytorium do publikacji HACS ([d05bad5](https://github.com/mitabi/floodwatch/commit/d05bad523ebb25311e59b4a8cbb1bf2c94fd795a))
+
 # Changelog
 
 Wszystkie istotne zmiany w integracji floodwatch.

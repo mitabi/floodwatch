@@ -8,7 +8,7 @@
 
 [project]
 name = "floodwatch"
-version = "0.1.1"
+version = "1.0.0"
 description = "Zintegrowany z Home Assistant monitoring powodziowy RWD Prospect (monitoring.prospect.pl)"
 readme = "README.md"
 requires-python = ">=3.12"
